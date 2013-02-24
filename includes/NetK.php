@@ -34,7 +34,7 @@ class NetK {
 			);
 
 			// Cogemos los 5 últimos artículos
-			$latest = Google_Feeds::get($url, $posts_per_feed);
+			$latest = Google_Feeds::get($url, $posts_per_feed)->responseData->feed;
 			self::$content[$url]['info'] = $latest;
 			self::$items = array_merge(self::$items, $latest->entries);
 		}

@@ -74,7 +74,7 @@ if( ! $items = Cache::get('NetK_full_items', true) ) {
 	<meta name="viewport" content="width=device-width">
 
 	<link rel="stylesheet" href="css/style.css">
-	<script src="js/modernizr.js"></script>
+	<script src="js/html5.js"></script>
 </head>
 <body>
 	<div class="header-outer">
@@ -95,6 +95,5 @@ if( ! $items = Cache::get('NetK_full_items', true) ) {
 		?>
 	</ul>
 	<?php // NetK::renderFeeds() ?>
-	<script src="js/script.js"></script>
 </body>
 </html>
