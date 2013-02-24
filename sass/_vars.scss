@@ -1,0 +1,16 @@
+/* Colores */
+$text-color: #444;
+$link-color: darken(rgb(35, 173, 238),10%);
+$link-hover-color: darken($link-color, 15%);
+/* Mostrar la decoración subrayada del link al hacer hover */
+$show-link-text-decoration: false;
+
+$highlight-color: #50b7dc;
+// $highlight-color: rgb(17, 127, 179);
+/* Fuentes */
+$base-font-size: 14px;
+$base-font-family: arial, helvetica, sans-serif;
+$base-line-height: (1 + sqrt(5)) / 2; // Número áureo
+
+/* Header */
+$header-height: 3 * $base-font-size;

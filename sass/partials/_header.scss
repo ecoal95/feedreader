@@ -1,0 +1,35 @@
+$header-color: #fff;
+
+.header-outer {
+	line-height: $header-height;
+	background: $highlight-color;
+	@include background-image(
+				linear-gradient( $highlight-color, darken($highlight-color, 10%))
+	);
+	border-bottom: 1px solid darken($highlight-color, 12%);
+
+	@if( lightness($highlight-color) > 70% ) {
+		$header-color: #333;
+	}
+	color: $header-color;
+}
+
+.site-title {
+	@extend %inline-block;
+	vertical-align: middle;
+	
+	margin: 0;
+	font-size: 1.7em;
+
+	&, a {
+		color: darken($header-color, 10%);
+	}
+
+	a:hover {
+		color: $header-color;
+	}
+}
+
+.site-description {
+	@extend %inline-block;
+}

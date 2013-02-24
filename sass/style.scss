@@ -1,0 +1,63 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "normalize";
+@import "vars";
+@import "mixins";
+
+// Traer aquí los mixins específicos, o hacer un @import "compass"; global
+@import "compass/css3/box-sizing";
+@import "compass/css3/images";
+@import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
+
+@include viewport {
+	width: device-width;
+}
+
+* {
+	@include box-sizing(border-box);
+}
+
+
+html {
+	background: #eee url(../img/bg.png);
+	color: $text-color;
+
+	$percentage-font-size: $base-font-size / 16px * 100%;
+	font: #{$percentage-font-size}/#{$base-line-height} #{$base-font-family};
+	// Mixin bp (breakpoint)
+	@include bp(retina) {
+		background-image: url(../img/bg@2x.png);
+	}
+}
+
+a {
+	color: $link-color;
+	text-decoration: none;
+	&:hover {
+		color: $link-hover-color;
+		@if( $show-link-text-decoration ) {
+			text-decoration: underline;
+		}
+	}
+}
+
+.container {
+	max-width: 90%;
+	margin: 0 auto;
+	@include bp(mobile) {
+		max-width: 95%;
+	}
+}
+
+/* Resetear las listas, ya que no vamos a usar ninguna que no sea la de los ítems principales */
+ol, ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+@import "partials/header";
+@import "partials/entry"

@@ -1,0 +1,51 @@
+.feed-entry {
+	background: white;
+	padding: 1em;
+	margin-top: 1em;
+
+	border: 1px solid #ccc;
+
+	@include border-radius(3px);
+	@include box-shadow(0 2px 1px rgba(0,0,0,.25));
+
+	@media only screen and (min-width: 500px) {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	@media only screen and ( min-width: 500px ) and (max-width: 700px) {
+		width: 47.5%;
+		margin-left: 5%;
+		&:nth-child(2n-1) {
+			margin-left: 0;
+		}
+	}
+
+	@media only screen and ( min-width: 700px ) and (max-width: 1200px) {
+		width: 30%;
+		margin-left: 5%;
+		&:nth-child(3n-2) {
+			margin-left: 0;
+		}
+	}
+
+	@media only screen and ( min-width: 1200px) {
+		width: 22.5%;
+		margin-left: 3.333%;
+
+		&:nth-child(4n-3) {
+			margin-left: 0;
+		}
+	}
+}
+
+.feed-entry-title {
+	margin: 0;
+	font-size: 1.1em;
+	padding-bottom: .5em;
+	border-bottom: 1px dashed #aaa;
+}
+
+.feed-entry-meta {
+	margin: .5em 0 1em 0;
+}
