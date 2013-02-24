@@ -30,13 +30,22 @@ Cache::configure(array(
 	'expires' => 1
 ));
 
-NetK::start($config['feeds'], $config['posts_per_feed']);
+/** 
+ * Sólo usar la clase con cURL si no tenemos una copia completa fresca desde la caché
+ */
+if( ! $items = Cache::get('NetK_full_items', true) ) {
+	NetK::start($config['feeds'], $config['posts_per_feed']);
+	// Por ahora sólo soportado date
+	NetK::orderItems('date');
+	NetK::setFeedTemplate(BASE_PATH . 'includes/template-fullfeed.php');
+	NetK::setItemTemplate(BASE_PATH . 'includes/template-entry.php');
 
-// Por ahora sólo soportado date
-NetK::orderItems('date');
+	ob_start();
+	NetK::renderItems();
+	$items = ob_get_clean();
 
-NetK::setFeedTemplate(BASE_PATH . 'includes/template-fullfeed.php');
-NetK::setItemTemplate(BASE_PATH . 'includes/template-entry.php');
+	Cache::put('NetK_full_items', $items, true);
+}
 ?><!DOCTYPE html>
 <!--[if lt IE 7 & (!IEMobile)]>
 <html class="ie ie6 lt-ie7 lt-ie8 lt-ie9 no-js">
@@ -73,14 +82,17 @@ NetK::setItemTemplate(BASE_PATH . 'includes/template-entry.php');
 			<h1 class="site-title"><a href="<?php echo BASE_ABSOLUTE_URL ?>">NetK</a></h1>
 		</header>
 	</div>
-	<!-- Tabla de contenidos, sólo si renderizamos los feeds y no los items -->
+	<?php /** Tabla de contenidos, sólo si renderizamos los feeds y no los items */ ?>
 	<!-- <ul class="toc" id="toc">
 		<?php foreach ($config['feeds'] as $url => $name): ?>
 			<li id="<?php echo nameToId($name) ?>-toc"><a href="#<?php echo nameToId($name) ?>"><?php echo $name ?></a></li>
 		<?php endforeach ?>
 	</ul> -->
 	<ul role="main" class="netk-items container">
-		<?php NetK::renderItems() ?>			
+		<?php /** Mostrar los elementos desde la caché */ 
+			// NetK::renderItems();
+			echo $items;
+		?>
 	</ul>
 	<?php // NetK::renderFeeds() ?>
 	<script src="js/script.js"></script>

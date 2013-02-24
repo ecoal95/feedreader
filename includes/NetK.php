@@ -15,11 +15,8 @@ class NetK {
 				'latest_articles' => array(),
 			);
 
-			if( ! $latest = Cache::get( $url . '_latest', true) ) {
-				// Cogemos los 5 últimos artículos
-				$latest = Google_Feeds::get($url, $posts_per_feed);
-				Cache::put($url . '_latest', $latest = json_encode($latest->responseData->feed), true);
-			}
+			// Cogemos los 5 últimos artículos
+			$latest = Google_Feeds::get($url, $posts_per_feed);
 			$latest = json_decode($latest);
 			self::$content[$url]['info'] = $latest;
 			self::$items = array_merge(self::$items, $latest->entries);
