@@ -37,6 +37,8 @@
 			margin-left: 0;
 		}
 	}
+
+
 }
 
 .feed-entry-title {
@@ -55,27 +57,19 @@
 /**
  * Favicons
  */
-.feed-entry-title a {
-	display: block;
-	position: relative;
+.feed-entry-title {
 	padding-right: 20px;
+	position: relative;
 }
-.feed-entry-title a:before {
+.feed-entry-link {
+	font: 0/0 a;
+	color: transparent;
+
+	background-repeat: no-repeat;
+	background-size: 16px 16px;
 	position: absolute;
 	width: 16px;
 	height: 16px;
 	right: 0;
 	top: .25em;
-}
-$feeds: "Kseso", "Oloblogger", "css-tricks", "emilio", "html5rocks";
-$domains: "ksesocss.blogspot.com", "oloblogger.com", "css-tricks.com", "emiliocobos.net", "html5rocks.com";
-
-@function domain-for($feed) {
-	@return nth($domains, index($feeds, $feed));
-}
-
-@each $feed in $feeds {
-	.feed-entry[data-url*="#{$feed}"] .feed-entry-title a:before {
-		content: url("http://www.google.com/s2/favicons?domain=" + domain-for($feed));
-	}
 }

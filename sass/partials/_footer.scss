@@ -1,0 +1,21 @@
+.footer-outer {
+	margin-top: 2em;
+	padding-top: 1em;
+	text-align: center;
+	overflow: hidden;
+
+	border-top: 1px solid #cacaca;
+	background: #f3f3f3;
+
+	p {
+		margin: .5em 0;
+	}
+
+	@media only screen and (min-height: 30em) {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		z-index: 999;
+	}
+}

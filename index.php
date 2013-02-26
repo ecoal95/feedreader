@@ -33,7 +33,7 @@ Cache::configure(array(
 /** 
  * Sólo usar la clase si no tenemos una copia completa fresca desde la caché
  */
-if( ! $items = Cache::get('NetK_full_items', true) ) {
+if( ! $items = Cache::get('Reader_full_items', true) ) {
 	Reader::start($config['feeds'], $config['posts_per_feed']);
 	// Por ahora sólo soportado date
 	Reader::orderItems('date');
@@ -44,7 +44,7 @@ if( ! $items = Cache::get('NetK_full_items', true) ) {
 	Reader::renderItems();
 	$items = ob_get_clean();
 
-	Cache::put('NetK_full_items', $items, true);
+	Cache::put('Reader_full_items', $items, true);
 }
 ?><!DOCTYPE html>
 <!--[if lt IE 7 & (!IEMobile)]>
@@ -65,11 +65,11 @@ if( ! $items = Cache::get('NetK_full_items', true) ) {
 <head prefix="og: http://ogp.me/ns#">
 	<meta charset="utf-8">
 
-	<title>redEC (nombre provisional) | Agregador (?) de feeds con PHP | Emilio Cobos</title>
-	<meta property="og:title" content="redEC (nombre provisional)">
+	<title>Blogs que leer | Agregador (?) de feeds con PHP | Emilio Cobos</title>
+	<meta property="og:title" content="Blogs que leer | Agregador (?) de feeds con PHP | Emilio Cobos">
 
-	<meta name="description" content="redEC (nombre provisional) es una red de artículos de blogs externos que te pueden ser de ayuda. Ésta es una réplica con PHP, pero el NetK original lo podéis ver en http://ksesocss.blogspot.com/2012/11/netK.html">
-	<meta property="og:description" content="redEC (nombre provisional) es una red de artículos de blogs externos que te pueden ser de ayuda. Ésta es una réplica con PHP, pero el NetK original lo podéis ver en http://ksesocss.blogspot.com/2012/11/netK.html">
+	<meta name="description" content="Red de artículos de blogs externos sobre diseño y desarrollo web que te pueden ser de ayuda.">
+	<meta property="og:description" content="Red de artículos de blogs externos sobre diseño y desarrollo web que te pueden ser de ayuda.">
 
 	<meta name="viewport" content="width=device-width">
 
@@ -81,7 +81,7 @@ if( ! $items = Cache::get('NetK_full_items', true) ) {
 <body>
 	<div class="header-outer">
 		<header role="banner" class="site-header container">
-			<h1 class="site-title"><a href="<?php echo BASE_ABSOLUTE_URL ?>">redEC</a></h1>
+			<h1 class="site-title"><a href="<?php echo BASE_ABSOLUTE_URL ?>">¿Qué leer?</a></h1>
 		</header>
 	</div>
 	<?php /** Tabla de contenidos, sólo si renderizamos los feeds y no los items */ ?>
@@ -97,5 +97,13 @@ if( ! $items = Cache::get('NetK_full_items', true) ) {
 		?>
 	</ul>
 	<?php // NetK::renderFeeds() ?>
+	<div class="footer-outer">
+		<footer class="site-footer container">
+			<p>Pequeño experimento por <a href="//emiliocobos.net/" rel="author" title="Diseño y desarrollo web">Emilio Cobos</a>. Basado en <a href="//ksesocss.blogspot.com/2012/11/netK.html">NetK</a></p>
+			<p>
+				<a href="//contacto.emiliocobos.net/">¿Quieres salir listado? ¡Contacta conmigo!</a>
+			</p>
+		</footer>
+	</div>
 </body>
 </html>

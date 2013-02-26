@@ -25,6 +25,7 @@ class Reader {
 	 * @return void
 	 */
 	public static function start($feeds, $posts_per_feed = 5) {
+		@set_time_limit(0);
 		self::$feeds = $feeds;
 		foreach ($feeds as $url => $nombre) {
 			self::$content[$url] = array(
@@ -36,6 +37,15 @@ class Reader {
 			// Cogemos los 5 últimos artículos
 			$latest = Google_Feeds::get($url, $posts_per_feed)->responseData->feed;
 			self::$content[$url]['info'] = $latest;
+
+			$siteUrl = $latest->link;
+
+			// Añadir la url
+			$latest->entries = array_map(function($entry) use ($siteUrl) {
+				$entry->siteUrl = $siteUrl;
+				return $entry;
+			}, $latest->entries);
+
 			self::$items = array_merge(self::$items, $latest->entries);
 		}
 	}
