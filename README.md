@@ -1,7 +1,8 @@
-# NetK en PHP #
-Un agregador de feeds en PHP para reemplazar a javascript.
+# Lector de feeds en PHP #
+Aquí podéis ver lo que leo.
 
-Idea original: [KsesoCSS](http://ksesocss.blogspot.com/2012/11/netK.html)
+Éste es un experimento basado en [NetK](http://ksesocss.blogspot.com/2012/11/netK.html)
+
 Construído por [Emilio Cobos](http://emiliocobos.net)
 
 ## Importante ##

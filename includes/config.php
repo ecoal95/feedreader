@@ -6,8 +6,8 @@ return array(
 		'http://emiliocobos.net/feed/' => 'Emilio Cobos',
 		'http://ksesocss.blogspot.com/feeds/posts/default' => 'Kseso',
 		'http://oloblogger.com/feeds/posts/default' => 'Oloblogger',
-		'http://vagabundia.blogspot.com/feeds/posts/default' => 'Vagabundia',
-		'http://www.ayuda-bloggers.info/feeds/posts/default' => 'Ayuda Bloggers',
+		'http://css-tricks.com/feed/' => 'CSS-Tricks',
+		'http://feeds.feedburner.com/html5rocks' => 'HTML5 Rocks',
 		// ...
 	),
 

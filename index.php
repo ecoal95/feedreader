@@ -31,17 +31,17 @@ Cache::configure(array(
 ));
 
 /** 
- * Sólo usar la clase con cURL si no tenemos una copia completa fresca desde la caché
+ * Sólo usar la clase si no tenemos una copia completa fresca desde la caché
  */
 if( ! $items = Cache::get('NetK_full_items', true) ) {
-	NetK::start($config['feeds'], $config['posts_per_feed']);
+	Reader::start($config['feeds'], $config['posts_per_feed']);
 	// Por ahora sólo soportado date
-	NetK::orderItems('date');
-	NetK::setFeedTemplate(BASE_PATH . 'includes/template-fullfeed.php');
-	NetK::setItemTemplate(BASE_PATH . 'includes/template-entry.php');
+	Reader::orderItems('date');
+	Reader::setFeedTemplate(BASE_PATH . 'includes/template-fullfeed.php');
+	Reader::setItemTemplate(BASE_PATH . 'includes/template-entry.php');
 
 	ob_start();
-	NetK::renderItems();
+	Reader::renderItems();
 	$items = ob_get_clean();
 
 	Cache::put('NetK_full_items', $items, true);
@@ -65,21 +65,23 @@ if( ! $items = Cache::get('NetK_full_items', true) ) {
 <head prefix="og: http://ogp.me/ns#">
 	<meta charset="utf-8">
 
-	<title>NetK | Réplica con PHP | Emilio Cobos</title>
-	<meta property="og:title" content="NetK">
+	<title>redEC (nombre provisional) | Agregador (?) de feeds con PHP | Emilio Cobos</title>
+	<meta property="og:title" content="redEC (nombre provisional)">
 
-	<meta name="description" content="NetK es una red de artículos de blogs externos que te pueden ser de ayuda. Ésta es una réplica con PHP, pero el NetK original lo podéis ver en http://ksesocss.blogspot.com/2012/11/netK.html">
-	<meta property="og:description" content="NetK es una red de artículos de blogs externos que te pueden ser de ayuda. Ésta es una réplica con PHP, pero el NetK original lo podéis ver en http://ksesocss.blogspot.com/2012/11/netK.html">
+	<meta name="description" content="redEC (nombre provisional) es una red de artículos de blogs externos que te pueden ser de ayuda. Ésta es una réplica con PHP, pero el NetK original lo podéis ver en http://ksesocss.blogspot.com/2012/11/netK.html">
+	<meta property="og:description" content="redEC (nombre provisional) es una red de artículos de blogs externos que te pueden ser de ayuda. Ésta es una réplica con PHP, pero el NetK original lo podéis ver en http://ksesocss.blogspot.com/2012/11/netK.html">
 
 	<meta name="viewport" content="width=device-width">
 
 	<link rel="stylesheet" href="css/style.css">
-	<script src="js/html5.js"></script>
+	<!--[if lt IE 9]>
+		<script src="js/html5.js"></script>
+	<![endif]-->
 </head>
 <body>
 	<div class="header-outer">
 		<header role="banner" class="site-header container">
-			<h1 class="site-title"><a href="<?php echo BASE_ABSOLUTE_URL ?>">NetK</a></h1>
+			<h1 class="site-title"><a href="<?php echo BASE_ABSOLUTE_URL ?>">redEC</a></h1>
 		</header>
 	</div>
 	<?php /** Tabla de contenidos, sólo si renderizamos los feeds y no los items */ ?>
