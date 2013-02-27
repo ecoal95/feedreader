@@ -26,8 +26,8 @@ require BASE_PATH . 'includes/functions.php';
 /** Configurar la caché para que expire en una hora */
 Cache::configure(array(
 	'cache_path' => BASE_PATH . 'storage/cache',
-	// 1 hora
-	'expires' => 1
+	// medio día
+	'expires' => 12
 ));
 
 /** 
@@ -105,5 +105,16 @@ if( ! $items = Cache::get('Reader_full_items', true) ) {
 			</p>
 		</footer>
 	</div>
+	<script>
+		var _gaq = _gaq || [];
+
+		_gaq.push(['_setAccount', 'UA-XXXXX-Y']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </body>
 </html>
