@@ -624,8 +624,14 @@ ol, ul {
 .footer-outer p {
   margin: .5em 0;
 }
+
 @media only screen and (min-height: 30em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/feedreader\/sass\/partials\/_footer\.scss}line{font-family:\000031}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/feedreader\/sass\/partials\/_footer\.scss}line{font-family:\0000316}}
+  body {
+    margin-bottom: 7em;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/feedreader\/sass\/partials\/_footer\.scss}line{font-family:\0000319}}
   .footer-outer {
     position: fixed;
     bottom: 0;

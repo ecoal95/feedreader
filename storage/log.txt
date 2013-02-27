@@ -2,3 +2,4 @@ http://feedproxy.google.com/~r/Ksesocss/~3/4f4fo3Clvm4/toggle-sidebar-blogger.ht
 http://feedproxy.google.com/~r/blogspot/vkhLT/~3/lW6voZHcdYs/conociendo-css3-animaciones.html
 http://css-tricks.com/w3conf-eric-meyer-the-era-of-intentional-layout/
 http://feedproxy.google.com/~r/html5rocks/~3/eLLUcaRmJOU/WebRTC-data-channels-API-changes-and-Chrome-talks-to-Firefox
+http://css-tricks.com/uniqlo-stripe-hovers/

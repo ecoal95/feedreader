@@ -26,8 +26,7 @@ require BASE_PATH . 'includes/functions.php';
 /** Configurar la caché para que expire en una hora */
 Cache::configure(array(
 	'cache_path' => BASE_PATH . 'storage/cache',
-	// medio día
-	'expires' => 12
+	'expires' => 6 // 6 horas
 ));
 
 /** 
@@ -65,8 +64,8 @@ if( ! $items = Cache::get('Reader_full_items', true) ) {
 <head prefix="og: http://ogp.me/ns#">
 	<meta charset="utf-8">
 
-	<title>Blogs que leer | Agregador (?) de feeds con PHP | Emilio Cobos</title>
-	<meta property="og:title" content="Blogs que leer | Agregador (?) de feeds con PHP | Emilio Cobos">
+	<title>Blogs sobre diseño web, blogger y wordpress | Agregador de feeds con PHP | Emilio Cobos</title>
+	<meta property="og:title" content="Blogs sobre diseño y desarrollo web, blogger y wordpress | Agregador de feeds con PHP | Emilio Cobos">
 
 	<meta name="description" content="Red de artículos de blogs externos sobre diseño y desarrollo web que te pueden ser de ayuda.">
 	<meta property="og:description" content="Red de artículos de blogs externos sobre diseño y desarrollo web que te pueden ser de ayuda.">
@@ -81,18 +80,11 @@ if( ! $items = Cache::get('Reader_full_items', true) ) {
 <body>
 	<div class="header-outer">
 		<header role="banner" class="site-header container">
-			<h1 class="site-title"><a href="<?php echo BASE_ABSOLUTE_URL ?>">¿Qué leer?</a></h1>
+			<h1 class="site-title"><a href="<?php echo BASE_ABSOLUTE_URL ?>">FeedReader | Lista de blogs interesantes sobre diseño y desarrollo web, blogger...</a></h1>
 		</header>
 	</div>
-	<?php /** Tabla de contenidos, sólo si renderizamos los feeds y no los items */ ?>
-	<!-- <ul class="toc" id="toc">
-		<?php foreach ($config['feeds'] as $url => $name): ?>
-			<li id="<?php echo nameToId($name) ?>-toc"><a href="#<?php echo nameToId($name) ?>"><?php echo $name ?></a></li>
-		<?php endforeach ?>
-	</ul> -->
-	<ul role="main" class="netk-items container">
+	<ul role="main" class="feed-items container">
 		<?php /** Mostrar los elementos desde la caché */ 
-			// NetK::renderItems();
 			echo $items;
 		?>
 	</ul>
@@ -101,14 +93,14 @@ if( ! $items = Cache::get('Reader_full_items', true) ) {
 		<footer class="site-footer container">
 			<p>Pequeño experimento por <a href="//emiliocobos.net/" rel="author" title="Diseño y desarrollo web">Emilio Cobos</a>. Basado en <a href="//ksesocss.blogspot.com/2012/11/netK.html">NetK</a></p>
 			<p>
-				<a href="//contacto.emiliocobos.net/">¿Quieres salir listado? ¡Contacta conmigo!</a>
+				<a href="//emiliocobos.net/agregador-feeds-php/#llamamiento">¿Quieres salir listado?</a>
 			</p>
 		</footer>
 	</div>
 	<script>
 		var _gaq = _gaq || [];
 
-		_gaq.push(['_setAccount', 'UA-XXXXX-Y']);
+		_gaq.push(['_setAccount', 'UA-27809661-2']);
 		_gaq.push(['_trackPageview']);
 		(function() {
 			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
